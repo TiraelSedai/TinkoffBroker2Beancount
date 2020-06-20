@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30204.135
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TinkoffBroker2Beancount", "TinkoffBroker2Beancount.csproj", "{00A78397-0186-4573-B9E7-9B60EFE992FB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{00A78397-0186-4573-B9E7-9B60EFE992FB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{00A78397-0186-4573-B9E7-9B60EFE992FB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{00A78397-0186-4573-B9E7-9B60EFE992FB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{00A78397-0186-4573-B9E7-9B60EFE992FB}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {DC896E6F-095C-49D2-9124-E3F3659182A6}
+	EndGlobalSection
+EndGlobal

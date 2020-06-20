@@ -1,0 +1,6 @@
+{
+  "BrokerAccount": "Assets:Broker:Tinkoff",
+  "CouponsAccount": "Income:Coupons",
+  "ComissionAccount": "Expenses:TaxesFees",
+  "InvestmentsIncomeAccount": "Income:Investments"
+}
