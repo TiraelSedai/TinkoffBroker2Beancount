@@ -8,3 +8,12 @@ Converts Excel reports from Tinkoff Broker to Beancount format
 ### Example usage
 - TinkoffBroker2Beancount.exe "D:\Finance\Reports\broker_rep-2020-may.xlsx"
 - dotnet TinkoffBroker2Beancount.dll C:\Downloads\broker_rep-5.xlsx
+
+### Features
+
+- [x] Buy/Sell, including comission
+- [x] Equity
+- [x] Bonds
+- [ ] Tariff comission
+- [ ] Dividents
+- [ ] Coupons
