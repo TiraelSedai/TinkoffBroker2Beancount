@@ -22,7 +22,7 @@ namespace TinkoffBroker2Beancount
 
                 // Find transactions section.
                 var firstCell = reader.GetString(0);
-                if (firstCell?.StartsWith("1.1") == true)
+                if (firstCell?.StartsWith("1.1 ") == true)
                 {
                     // Move to before the first transaciton row.
                     reader.Read();
@@ -41,7 +41,7 @@ namespace TinkoffBroker2Beancount
 
                 var firstCell = reader.GetString(0);
 
-                if (MoveUtilFind(reader, "1.2"))
+                if (MoveUtilFind(reader, "1.2 "))
                     // End of executed transactions section.
                     break;
 
@@ -61,7 +61,7 @@ namespace TinkoffBroker2Beancount
                     return;
 
                 // Find money section.
-                if (MoveUtilFind(reader, "2."))
+                if (MoveUtilFind(reader, "2. "))
                 {
                     // Move to before the first transaciton row.
                     reader.Read();
