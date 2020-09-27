@@ -14,6 +14,6 @@ Converts Excel reports from Tinkoff Broker to Beancount format
 - [x] Buy/Sell, including comission
 - [x] Equity
 - [x] Bonds
-- [ ] Tariff comission
-- [ ] Dividents
-- [ ] Coupons
+- [x] Tariff comission
+- [x] Dividents
+- [x] Coupons
