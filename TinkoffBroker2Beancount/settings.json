@@ -1,6 +1,9 @@
 {
-  "BrokerAccount": "Assets:Broker:Tinkoff",
+  "BrokerAccount": "Assets:Tinkoff:Broker",
   "CouponsAccount": "Income:Coupons",
+  "DividendsAccount": "Income:Dividends",
   "ComissionAccount": "Expenses:TaxesFees",
-  "InvestmentsIncomeAccount": "Income:Investments"
+  "TaxAccount": "Expenses:TaxesFees",
+  "CapitalGainsAccount": "Income:Investments",
+  "BankAccount": "Assets:Tinkoff:Black:RUB"
 }

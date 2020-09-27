@@ -17,9 +17,7 @@ namespace TinkoffBroker2Beancount
 
             System.Text.Encoding.RegisterProvider(System.Text.CodePagesEncodingProvider.Instance);
 
-            var transactions = ExcelReader.ReadTransactions(filename, out var _);
-            foreach (var trn in transactions)
-                BeancountFormatter.PrintTransaction(trn);
+            Worker.ReadTransactions(filename);
         }
     }
 }

@@ -11,9 +11,17 @@ namespace TinkoffBroker2Beancount
         public int Amount { get; set; }
         public decimal AccumulatedCoupon { get; set; }
         public decimal Comission { get; set; }
-        public string ComissionCurrency { get; set; }
-        public string PriceCurrency { get; set; }
+        public string Currency { get; set; }
         public string Name { get; set; }
+        public string Mode { get; set; }
+    }
+
+    public struct MonetaryTransaction
+    {
+        public DateTime Date { get; set; }
+        public string Operation { get; set; }
+        public decimal Amount { get; set; }
+        public string Currency { get; set; }
     }
 
     public enum TransactionType
