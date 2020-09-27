@@ -194,7 +194,7 @@ namespace TinkoffBroker2Beancount
                 Price = price,
                 Ticker = ticker,
                 Type = type,
-                Name = name,
+                Name = name.Replace("\"", ""),
                 Currency = priceCur,
                 Mode = mode
             });
