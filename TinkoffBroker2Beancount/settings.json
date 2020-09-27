@@ -4,6 +4,6 @@
   "DividendsAccount": "Income:Dividends",
   "ComissionAccount": "Expenses:TaxesFees",
   "TaxAccount": "Expenses:TaxesFees",
-  "CapitalGainsAccount": "Income:Investments",
+  "CapitalGainsAccount": "Income:CapitalGains",
   "BankAccount": "Assets:Tinkoff:Black:RUB"
 }

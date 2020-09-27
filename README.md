@@ -17,3 +17,6 @@ Converts Excel reports from Tinkoff Broker to Beancount format
 - [x] Tariff comission
 - [x] Dividents
 - [x] Coupons
+up
+### Known limitations:
+- Too many missing numbers for currency group '*CUR*' beancount message when there are *exactly* 0 capital gains: just delete capital gains account from transaction

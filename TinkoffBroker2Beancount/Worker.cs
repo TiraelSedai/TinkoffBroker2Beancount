@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
 using System.Linq;
+using System.Threading;
 
 namespace TinkoffBroker2Beancount
 {
@@ -47,7 +48,6 @@ namespace TinkoffBroker2Beancount
                 if (!long.TryParse(firstCell, out var _))
                 {
                     // It's ok, some lines are info about pages and whatnot.
-                    reader.Read();
                     continue;
                 }
 
@@ -131,10 +131,11 @@ namespace TinkoffBroker2Beancount
 
         private static void ParseAndPrintMoneyTransactions(IExcelDataReader reader, string currentCurrency, Dictionary<string, int> columnsMoney, string tryDate)
         {
+            Thread.CurrentThread.CurrentCulture = new CultureInfo("ru-RU");
             var date = DateTime.Parse(tryDate);
             var operation = reader.GetString(columnsMoney[nameof(MonetaryTransaction.Operation)]);
-            var amountp = decimal.Parse(reader.GetString(columnsMoney[nameof(Transaction.Amount) + "+"]), CultureInfo.GetCultureInfo("RU-ru"));
-            var amountm = decimal.Parse(reader.GetString(columnsMoney[nameof(Transaction.Amount) + "-"]), CultureInfo.GetCultureInfo("RU-ru"));
+            var amountp = decimal.Parse(reader.GetString(columnsMoney[nameof(Transaction.Amount) + "+"]));
+            var amountm = decimal.Parse(reader.GetString(columnsMoney[nameof(Transaction.Amount) + "-"]));
 
             PrintTransaction(new MonetaryTransaction
             {
@@ -165,6 +166,7 @@ namespace TinkoffBroker2Beancount
 
         private static void ParseAndPrintTransactions(IExcelDataReader reader, Dictionary<string, int> columns)
         {
+            Thread.CurrentThread.CurrentCulture = new CultureInfo("ru-RU");
             var date = DateTime.Parse(reader.GetString(columns[nameof(Transaction.Date)]));
 
             var typeRaw = reader.GetString(columns[nameof(Transaction.Type)]);
@@ -176,11 +178,11 @@ namespace TinkoffBroker2Beancount
 
             var name = reader.GetString(columns[nameof(Transaction.Name)]);
             var ticker = reader.GetString(columns[nameof(Transaction.Ticker)]);
-            var price = decimal.Parse(reader.GetString(columns[nameof(Transaction.Price)]), CultureInfo.GetCultureInfo("RU-ru"));
+            var price = decimal.Parse(reader.GetString(columns[nameof(Transaction.Price)]));
             var priceCur = reader.GetString(columns[nameof(Transaction.Currency)]);
             var amount = int.Parse(reader.GetString(columns[nameof(Transaction.Amount)]));
-            var accumulatedCoupon = decimal.Parse(reader.GetString(columns[nameof(Transaction.AccumulatedCoupon)]), CultureInfo.GetCultureInfo("RU-ru"));
-            var comission = decimal.Parse(reader.GetString(columns[nameof(Transaction.Comission)]), CultureInfo.GetCultureInfo("RU-ru"));
+            var accumulatedCoupon = decimal.Parse(reader.GetString(columns[nameof(Transaction.AccumulatedCoupon)]));
+            var comission = decimal.Parse(reader.GetString(columns[nameof(Transaction.Comission)]));
             var mode = reader.GetString(columns[nameof(Transaction.Mode)]);
 
             PrintTransaction(new Transaction
@@ -279,6 +281,8 @@ namespace TinkoffBroker2Beancount
 
         private static void PrintTransaction(MonetaryTransaction transaction, string otherAccount)
         {
+            Thread.CurrentThread.CurrentCulture = CultureInfo.InvariantCulture;
+
             Console.WriteLine($"{transaction.Date.ToString("yyyy-MM-dd", CultureInfo.InvariantCulture)} * \"Брокерский счёт: {transaction.Operation}\"");
             Console.WriteLine($"\t{Config.BrokerAccount}\t{transaction.Amount} {transaction.Currency}");
             Console.WriteLine($"\t{otherAccount}\t{0 - transaction.Amount} {transaction.Currency}");
@@ -287,6 +291,8 @@ namespace TinkoffBroker2Beancount
 
         public static void PrintTransaction(Transaction transaction)
         {
+            Thread.CurrentThread.CurrentCulture = CultureInfo.InvariantCulture;
+
             if (string.Equals(transaction.Mode, "CNGD", StringComparison.OrdinalIgnoreCase))
             {
                 var commodity = string.Concat(transaction.Ticker.Take(3));

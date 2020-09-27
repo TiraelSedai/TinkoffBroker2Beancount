@@ -2,7 +2,7 @@
   "profiles": {
     "TinkoffBroker2Beancount": {
       "commandName": "Project",
-      "commandLineArgs": "\"D:\\Downloads\\broker 2019.xlsx\""
+      "commandLineArgs": "\"D:\\Downloads\\broker 2020.xlsx\""
     }
   }
 }
